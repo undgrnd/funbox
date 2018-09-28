@@ -1,0 +1,161 @@
+.card
+	width 312px
+	height 472px
+	background linear-gradient(135deg, transparent 29px, #F2F2F2 29px)
+	border-radius 9px
+	position relative
+	left 4px
+	top 4px
+	padding-x(47px)
+	padding-y(19px)
+
+	&::before
+		content ''
+		position absolute
+		background-color inherit
+		background linear-gradient(135deg, transparent 30px, primary 0)
+		left -4px
+		right -4px
+		top -4px
+		bottom -4px
+		z-index -1
+		border-radius 12px
+
+	&:hover::before
+		background linear-gradient(135deg, transparent 30px, primary-hover 0)
+
+	&:hover
+		& .card__weight
+			background-color primary-hover
+
+	& .card__alarm
+		display none
+
+	&--disabled
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, disabled 0)
+
+		&:hover::before
+			background linear-gradient(135deg, transparent 30px, disabled 0)
+
+		&::after
+			content ''
+			display block
+			position absolute
+			z-index 10
+			top 0
+			bottom 0
+			left 0
+			right 0
+			background linear-gradient(135deg, transparent 29px, rgba(255, 255, 255, .5) 29px)
+			border-radius 5px
+
+		&:hover
+			& .card__weight
+				background-color #828282
+
+	&--active
+
+		& .card__weight
+			background-color active
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, active 0)
+
+		&:hover::before
+			background linear-gradient(135deg, transparent 30px, active-hover 0)
+
+		&:hover
+
+			& .card__weight
+				background-color active-hover
+
+			& .card__basic
+				display none
+
+			& .card__alarm
+				display block
+
+		& .card__alarm
+			display none
+
+	&--active-first
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, active 0)
+
+		&:hover::before
+			background linear-gradient(135deg, transparent 30px, active 0)
+
+		&:hover
+			& .card__weight
+				background-color active
+
+
+.card__title
+	margin-top 10px
+	position relative
+	left -4px
+
+.card__sub-title
+	margin-top 5px
+	margin-bottom 18px
+
+.card__text
+	margin-top 2px
+
+.card__image
+	display block
+	position relative
+	left -28px
+
+.card__image-container
+	position absolute
+	bottom 0
+	overflow hidden
+	left 0
+	height 268px
+	border-radius 8px
+	width 268px
+
+.card__weight
+	width 80px
+	height 80px
+	background-color primary
+	border-radius 50%
+	text-align center
+	vertical-align middle
+	position absolute
+	right 12px
+	bottom 12px
+
+	&--disabled
+		background-color #828282
+
+	&--active
+		background-color active
+
+	&--active-first
+		background-color active
+
+.card__weight-number
+	pageTextDecorateStyle(false)
+	display block
+	margin-top 10px
+
+.card__weight-unit
+	pageTextDecorateStyle(true)
+	display block
+
+.card__alarm
+	pageTextStyle(true)
+
+.card--disabled .card__alarm
+	display none
+
+@media (max-width: tablet-breakpoint)
+	.card
+		width 290px
+		left 0
+

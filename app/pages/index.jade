@@ -1,0 +1,14 @@
+include ../blocks/text/text
+include ../blocks/cards/cards
+include ../blocks/link/link
+include ../blocks/container/container
+extends ../blocks/layout-default/layout-default
+
+block head
+	- var pageTitle = 'Fun Box Cats';
+
+block content
+	- var cats = getData('cats');
+	+container
+		+text('h1').text--page-header.page__title Ты сегодня покормил кота?
+		+cards(cats)

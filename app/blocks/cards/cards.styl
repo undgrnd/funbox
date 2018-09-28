@@ -1,0 +1,36 @@
+.cards
+	width 1120px
+	margin-x(auto)
+
+.cards__list
+	list-style-type none
+	display flex
+
+.cards__item
+	flex-basis 320px
+	margin-right 80px
+
+	&:last-child
+		margin-right 0
+
+.cards__description
+	text-align center
+	margin-top 23px
+
+@media (max-width: desktop-breakpoint)
+	.cards
+		width auto
+
+	.cards__list
+		flex-wrap wrap
+		justify-content: space-around
+
+	.cards__item
+		flex-basis auto
+		margin-right 0
+		margin-bottom 26px
+
+		&:last-child
+			margin-bottom 0
+
+

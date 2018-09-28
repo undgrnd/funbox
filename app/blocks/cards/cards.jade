@@ -1,0 +1,20 @@
+include ../card/card
+
+mixin cards(cats)
+	+b.SECTION.cards&attributes(attributes)
+		block
+		+e.UL.__list
+			each cat, index in cats
+				if index === 1
+					+e.LI.__item
+						+card(cat, 'active').card--active
+						p.text.text--white.cards__description= cat.description
+				else if index === 2
+					+e.LI.__item
+						+card(cat, 'disabled').card--disabled
+						p.text.text--yellow.cards__description= cat.description
+				else
+					+e.LI.__item
+						+card(cat, '')
+						+text('p').text--white.cards__description Чего сидишь? Порадуй котэ,
+							+link(1) купи

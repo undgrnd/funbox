@@ -1,0 +1,16 @@
+mixin card(cat, state)
+	+b.ARTICLE.card&attributes(attributes)
+		block
+		+text('p').text--basic.card__basic(class="#{ state === 'disabled' ? 'text--disabled' : '' }") Сказочное заморское яство
+		+text('p').card__alarm Котэ не одобряет?
+		+text('h3').text--header-big(class="#{ state === 'disabled' ? 'text--disabled' : '' }").card__title Нямушка
+		h4.text.text--sub-header-big(class="#{ state === 'disabled' ? 'text--disabled' : '' }").card__sub-title= cat.taste
+		p.text.text--small.card__text(class="#{ state === 'disabled' ? 'text--disabled' : '' }")= cat.portions + ' порций'
+		p.text.text--small.card__text(class="#{ state === 'disabled' ? 'text--disabled' : '' }")= cat.gift + ' в подарок'
+		if cat.review
+			p.text.text--small.card__text(class="#{ state === 'disabled' ? 'text--disabled' : '' }")= cat.review
+		+e.__image-container
+			+e.IMG.__image('src' = '/assets/images/cat.png', 'alt' = 'кот-клади-рыбу-в-рот')
+		+e.__weight('class'='card__weight--' + state)
+			+e.SPAN.__weight-number= cat.weight
+			+e.SPAN.__weight-unit кг
