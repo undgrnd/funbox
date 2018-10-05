@@ -1,20 +1,50 @@
-include ../card/card
-
-mixin cards(cats)
+mixin cards()
 	+b.SECTION.cards&attributes(attributes)
-		block
+		+e.H2.__main-title Продукты для домашних любимцев
 		+e.UL.__list
-			each cat, index in cats
-				if index === 1
-					+e.LI.__item
-						+card(cat, 'active').card--active
-						p.text.text--white.cards__description= cat.description
-				else if index === 2
-					+e.LI.__item
-						+card(cat, 'disabled').card--disabled
-						p.text.text--yellow.cards__description= cat.description
-				else
-					+e.LI.__item
-						+card(cat, '')
-						+text('p').text--white.cards__description Чего сидишь? Порадуй котэ,
-							+link(1) купи
+			+e.LI.__item
+				+e.ARTICLE.__card(tabindex = 0)
+					+e.P.__description Сказочное заморское яство
+					+e.P.__alarm Котэ не одобряет?
+					+e.H3.__title Нямушка
+					+e.H4.__sub-title с фуа-гра
+					+e.P.__text <b>10</b> порций
+					+e.P.__text мышь в подарок
+					+e.__image-container
+						+e.IMG.__image(src = '/assets/images/cat.png', alt = 'серый кот в ошейнике', title = 'Кот - клади фуа-гра в рот', srcset = '/assets/images/cat@2x.png 2x', width = '368', height = '360')
+					+e.__weight
+						+e.SPAN.__weight-number 0,5
+						+e.SPAN.__weight-unit кг
+				+e.P.__comment Чего сидишь? Порадуй котэ,
+					+e.A.__link(href = '#', data-link = 1, tabindex = 0) купи.
+				+e.P.__comment._active Печень утки разварная с артишоками.
+			+e.LI.__item
+				+e.ARTICLE.__card._active(tabindex = 0)
+					+e.P.__description Сказочное заморское яство
+					+e.P.__alarm Котэ не одобряет?
+					+e.H3.__title Нямушка
+					+e.H4.__sub-title с рыбой
+					+e.P.__text <b>40</b> порций
+					+e.P.__text <b>2</b> мыши в подарок
+					+e.__image-container
+						+e.IMG.__image(src = '/assets/images/cat.png', alt = 'серый кот в ошейнике', title = 'Кот - клади рыбу в рот', srcset = '/assets/images/cat@2x.png 2x', width = '368', height = '360')
+					+e.__weight._active
+						+e.SPAN.__weight-number 2
+						+e.SPAN.__weight-unit кг
+				+e.P.__comment Чего сидишь? Порадуй котэ,
+					+e.A.__link(href = '#', data-link = 2, tabindex = 0) купи.
+				+e.P.__comment._active Головы щучьи с чесноком да свежайшая сёмгушка.
+			+e.LI.__item
+				+e.ARTICLE.__card._disabled
+					+e.P.__description._disabled Сказочное заморское яство
+					+e.H3.__title._disabled Нямушка
+					+e.H4.__sub-title._disabled с курой
+					+e.P.__text._disabled <b>100</b> порций
+					+e.P.__text._disabled <b>5</b> мышей в подарок
+					+e.P.__text._disabled заказчик доволен
+					+e.__image-container
+						+e.IMG.__image(src = '/assets/images/cat.png', alt = 'серый кот в ошейнике', title = 'Кот - клади куру в рот', srcset = '/assets/images/cat@2x.png 2x', width = '368', height = '360')
+					+e.__weight._disabled
+						+e.SPAN.__weight-number 5
+						+e.SPAN.__weight-unit кг
+				+e.P.__comment._disabled Печалька, с курой закончился.

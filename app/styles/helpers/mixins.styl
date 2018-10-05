@@ -43,13 +43,6 @@ retinaBackground($image, $ext = 'png') {
 	}
 }
 
-pageHeaderStyle()
-	font-family 'Exo 2', Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size 36px
-	color white
-	font-weight 100
-	line-height 44px
-
 headerBigStyle(subheader)
 	font-weight bold
 	color black
@@ -58,26 +51,6 @@ headerBigStyle(subheader)
 	else
 		font-size 48px
 
-
-pageTextStyle(alarm)
-	font-size 16px
-	if alarm
-		color #E62E7A
-	else
-		color #666666
-
-pageTextSmallStyle()
-	font-size 14px
-	color #666666
-
-pageTextColorStyle(color)
-	font-size 13px
-	color color
-
-pageTextWhiteStyle()
-	font-size 13px
-	color white
-
 pageTextDecorateStyle(small)
 	color white
 	if small
@@ -85,6 +58,9 @@ pageTextDecorateStyle(small)
 	else
 		font-size 42px
 
-pageTextDisabled()
-	color #B3B3B3
-
+visually-hidden()
+	position absolute
+	clip rect(0 0 0 0)
+	width 1px
+	height 1px
+	margin -1px

@@ -1,17 +1,31 @@
 .page
+	background-color black
 	background-image url('/assets/images/pattern.jpg')
 	font-family 'Trebuchet MS', Arial, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight 400
-	display flex
-	align-items center
-	justify-content center
-	height 100vh
+	padding-top 34px
+	padding-x(20px)
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+		background-image url('/assets/images/pattern@2x.jpg')
+		background-size 140px 140px
+
+	& b
+		font-weight 700
 
 .page__title
 	width 100%
 
-@media (max-width: desktop-breakpoint)
+@media (min-width: tablet-breakpoint)
 	.page
-		height auto
-		justify-content space-around
-		padding-y(40px)
+		padding-x(0)
+
+@media (min-width: desktop-breakpoint)
+
+	.page
+		display flex
+		align-items center
+		justify-content center
+		height 100vh //ie11 min-height fix
+		padding-top 0
+		align-content center

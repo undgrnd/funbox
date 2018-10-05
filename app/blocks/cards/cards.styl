@@ -1,36 +1,273 @@
 .cards
-	width 1120px
 	margin-x(auto)
+	display block
+
+.cards__main-title
+	visually-hidden()
 
 .cards__list
 	list-style-type none
-	display flex
 
 .cards__item
-	flex-basis 320px
-	margin-right 80px
+	margin-bottom 30px
 
-	&:last-child
-		margin-right 0
+.cards__card
+	width 280px
+	margin-x(auto)
+	min-height 472px
+	background linear-gradient(135deg, transparent 29px, #F2F2F2 29px)
+	border-radius 9px
+	position relative
+	margin-bottom 23px
+	padding-x(47px)
+	padding-y(19px)
+	padding-bottom 268px
+
+	&::before
+		content ''
+		position absolute
+		background-color inherit
+		background linear-gradient(135deg, transparent 30px, primary 0)
+		left -4px
+		right -4px
+		top -4px
+		bottom -4px
+		z-index -1
+		border-radius 12px
+
+	& .cards__alarm
+		display none
+
+	& ~ .cards__comment_active
+		display none
+
+	&_disabled
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, disabled 0)
+
+		&::after
+			content ''
+			display block
+			position absolute
+			z-index 10
+			top 0
+			bottom 0
+			left 0
+			right 0
+			background linear-gradient(135deg, transparent 29px, rgba(255, 255, 255, .5) 29px)
+			border-radius 8px
+
+	&_active
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, active 0)
+
+		& .cards__alarm
+			display none
+
+		& ~ .cards__comment
+			display none
+
+		& ~ .cards__comment_active
+			display block
+
+		& .cards__weight
+			background-color active
+
+	&_active-first
+
+		&::before
+			background linear-gradient(135deg, transparent 30px, active 0)
+
+		& ~ .cards__comment
+			display none
+
+		& ~ .cards__comment_active
+			display block
+
+.cards__title
+	headerBigStyle(false)
+	position relative
+	left -4px
+	margin-bottom 5px
+
+	&_disabled
+		color disabled
+
+.cards__sub-title
+	headerBigStyle(true)
+	margin-bottom 18px
+
+	&_disabled
+		color disabled
 
 .cards__description
+	margin-bottom 10px
+	font-size 16px
+	color #666666
+
+	&_disabled
+		color #bdb9b9
+
+.cards__alarm
+	margin-bottom 10px
+	font-size 16px
+	color #E62E7A
+
+.cards__text
+	font-size 14px
+	color #666666
+	margin-bottom 2px
+
+	&_disabled
+		color #bdb9b9
+
+.cards__image
+	display block
+	position relative
+	left -28px
+
+.cards__image-container
+	position absolute
+	bottom 0
+	overflow hidden
+	left 0
+	height 268px
+	border-radius 8px
+	width 268px
+
+.cards__weight
+	width 80px
+	min-height 80px
+	background-color primary
+	border-radius 50%
 	text-align center
-	margin-top 23px
+	vertical-align middle
+	position absolute
+	right 12px
+	bottom 12px
+	padding-top 10px
 
-@media (max-width: desktop-breakpoint)
-	.cards
-		width auto
+	&_disabled
+		background-color #757575
 
+	&_active
+		background-color active
+
+	&_active-first
+		background-color active
+
+.cards__weight-number
+	pageTextDecorateStyle(false)
+	display block
+
+.cards__weight-unit
+	pageTextDecorateStyle(true)
+	display block
+
+.cards__comment
+	font-size 13px
+	color white
+	text-align center
+
+	&_disabled
+		color #ffff66
+
+.cards__link
+	color primary
+	text-decoration none
+	border-bottom 1px dashed primary
+
+	&:hover
+		color primary-hover
+
+	&:active
+		color darkred
+
+@media (min-width: tablet-breakpoint)
 	.cards__list
+		display flex
+		justify-content space-around
 		flex-wrap wrap
-		justify-content: space-around
+		width 728px
+		margin-x(auto)
 
 	.cards__item
-		flex-basis auto
-		margin-right 0
-		margin-bottom 26px
+		width 312px
+
+	.cards__card
+		width auto
+
+@media (min-width: desktop-breakpoint)
+	.cards
+		width 1120px
+
+	.cards__list
+		list-style-type none
+		display flex
+		flex-wrap nowrap
+		width auto
+		justify-content space-between
+
+	.cards__item
+		margin-right 80px
+		flex-basis 320px
+		margin-bottom 0
+		width auto
 
 		&:last-child
-			margin-bottom 0
+			margin-right 0
 
+	.cards__card
+		width 312px
+		top 4px
 
+		&:focus
+			outline 1px solid lightslategray
+
+		&:hover::before
+			background linear-gradient(135deg, transparent 30px, primary-hover 0)
+
+		&:hover
+			& .cards__weight
+				background-color primary-hover
+
+		&_disabled
+
+			&:hover
+				& .cards__weight
+					background-color #757575
+
+			&:hover::before
+				background linear-gradient(135deg, transparent 30px, disabled 0)
+
+		&_active
+
+			&:hover::before
+				background linear-gradient(135deg, transparent 30px, active-hover 0)
+
+			&:hover
+
+				& .cards__weight
+					background-color active-hover
+
+				& .cards__description
+					display none
+
+				& .cards__alarm
+					display block
+
+		&_active-first
+
+			&:hover::before
+				background linear-gradient(135deg, transparent 30px, active 0)
+
+			&:hover
+				& .cards__weight
+					background-color active
+
+	.cards__link
+
+		&:focus
+			outline 1px solid lightslategray
